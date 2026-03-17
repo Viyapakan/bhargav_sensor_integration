@@ -1,22 +1,26 @@
-// Built-in LED is usually on GPIO 2 for these ESP32 boards
-#define LED_PIN 2
+#include "utils.h"
 
 void setup() {
-  // Initialize serial communication at 115200 baud rate
   Serial.begin(115200);
+  Serial.println("ESP32 Initialized. Testing modular LED utilities...");
   
-  // Initialize the LED pin as an output
-  pinMode(LED_PIN, OUTPUT);
+  // 1. Initialize the pin
+  init_led();
   
-  Serial.println("ESP32 is alive! Starting Blink Test...");
+  // 2. Test the toggle function (rapid blink 5 times)
+  Serial.println("Executing toggle_led: 5 rapid blinks...");
+  toggle_led(5, 200); 
+  
+  Serial.println("Toggle complete. Moving to main loop.");
 }
 
 void loop() {
-  digitalWrite(LED_PIN, HIGH);  // Turn LED ON
-  Serial.println("LED ON");
-  delay(1000);                  // Wait 1 second
+  // 3. Test the basic on/off functions
+  turn_on_led();
+  Serial.println("LED is ON");
+  delay(1000);
   
-  digitalWrite(LED_PIN, LOW);   // Turn LED OFF
-  Serial.println("LED OFF");
-  delay(1000);                  // Wait 1 second
+  turn_off_led();
+  Serial.println("LED is OFF");
+  delay(1000);
 }
