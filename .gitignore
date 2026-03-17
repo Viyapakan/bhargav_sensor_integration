@@ -1,0 +1,10 @@
+./.vscode/ 
+./build/ 
+*.exe 
+*.o 
+firmware/main/build/ 
+outputs/
+
+*.pdf
+*.png   
+supervisor_explanation.md
