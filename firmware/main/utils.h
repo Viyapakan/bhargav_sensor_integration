@@ -7,8 +7,10 @@
 const int LED_PIN = 2;
 
 // Initialize the LED pin (call this in setup)
-void init_led() {
+
+bool init_led() {
   pinMode(LED_PIN, OUTPUT);
+  return true; 
 }
 
 // Turn LED on
